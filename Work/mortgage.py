@@ -17,7 +17,10 @@ while principle > 0:
     if count >= start_extra_payment_period and count <= end_extra_payment_period: 
             principle = (principle * (1+rate/100/12)) - (monthly_payment+extra_payment)
             totalPaid_after_extraPayment = totalPaid_after_extraPayment + (monthly_payment+extra_payment)
-    else: 
+    else:   
+            if principle < monthly_payment:
+                monthly_payment = principle * (1+rate/100/12)
+                
             principle = principle * (1+rate/100/12) - monthly_payment
             totalPaid = totalPaid + monthly_payment
     
