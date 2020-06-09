@@ -14,15 +14,17 @@ totalPaid = 0.0
 monthly_payment = ((rate/100/12)/(1-(1+rate/100/12)**(-mortage_years*12)))*principle
 
 while principle > 0:
-    if count >= start_extra_payment_period and count <= end_extra_payment_period: 
+    if principle <= monthly_payment+extra_payment:
+            monthly_payment = principle * (1+rate/100/12)
+            extra_payment = 0.0
+            print("There is no need for an extra payment")
+
+    if count >= start_extra_payment_period and count <= end_extra_payment_period:
             principle = (principle * (1+rate/100/12)) - (monthly_payment+extra_payment)
             totalPaid_after_extraPayment = totalPaid_after_extraPayment + (monthly_payment+extra_payment)
-    else:   
-            if principle < monthly_payment:
-                monthly_payment = principle * (1+rate/100/12)
-                
-            principle = principle * (1+rate/100/12) - monthly_payment
-            totalPaid = totalPaid + monthly_payment
+    else:                  
+           principle = principle * (1+rate/100/12) - monthly_payment
+           totalPaid = totalPaid + monthly_payment
     
     print( 'month:', count, ':','total paid:', totalPaid, 'total paid with extra:', totalPaid_after_extraPayment,'remaining principle:', principle)
     count += 1
