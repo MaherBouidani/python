@@ -1,5 +1,7 @@
 # report.py
 # ------------------report2.4 
+import csv
+
 def report1():
     portfolio = []
     def read_portfolio(filename): 
@@ -20,11 +22,12 @@ def report1():
 
     print(read_portfolio('Data/portfolio.csv')) 
 
-#---------------------report2.5
-
+#---------------------report2.5 Interview Type Code
 def report2():
-    def read_portfolio(filename):
-            portfolio = [] 
+    portfolios = []
+    total = 0.0 
+    def read_portfolios(filename):
+            
             with open(filename, 'rt') as file:
                 count = 0
                 
@@ -37,16 +40,50 @@ def report2():
                             dic[header[0]] = data[0]
                             dic[header[1]] = int(data[1])
                             dic[header[2]] = float(data[2])
-                            portfolio.append(dic)
+                            portfolios.append(dic)
                            
                         count += 1
                         
-            return portfolio
-    print(read_portfolio('Data/portfolio.csv')) 
+            return portfolios
+    print(read_portfolios('Data/portfolio.csv'))
+
+    for portfolio in portfolios:
+        total += portfolio['shares'] * portfolio['price\n']
+    print (total) 
+
+#---------------------report2.5 Work Type Code
+
+def report3():
+    portfolios = []
+    total = 0.0 
+    def read_portfolios(filename):
+            
+            with open(filename, 'rt') as file:
+                rows = csv.reader(file)
+                header = next(rows)             
+                for row in rows:                                      
+                            dic = {} 
+                            dic[header[0]] = row[0]
+                            dic[header[1]] = int(row[1])
+                            dic[header[2]] = float(row[2])
+                            portfolios.append(dic)
+                           
+                        
+            return portfolios
+    print(read_portfolios('Data/portfolio.csv'))
+
+    for portfolio in portfolios:
+        total += portfolio['shares'] * portfolio['price']
+    print (total)
+    #------To Calcualte all the total investments: 
+    
 
 #----------------invoke report2.4:
-report1()
+# report1()
 
 #----------------invoke report2.5:
-report2()
+# report2()
+
+#----------------invoke report2.5:
+report3()
                                                                                                                                                                                                                                
