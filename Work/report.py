@@ -97,18 +97,29 @@ def report4():
     dicResult = read_prices('Data/prices.csv')
     reportReturn , totalResult = report3()
     print(totalResult)
-
-    for key in dicResult:
-        count = 0 
-        for k,v,e in reportReturn:
-            if key == reportReturn[count][k]:
-                reportReturn[count][e] = float(dicResult[key])
-            count += 1
+    #Direct calculation of the new total without updating the data with the new shares prices list
     total = 0.0
-    for portfolio in reportReturn: 
-        total += total + portfolio['shares'] * portfolio['price']
-    
+    for portfolio in reportReturn:
+        total += portfolio['shares'] * float(dicResult[portfolio['name']])
     print(total)
+    
+#Updating the data with the new shares prices list:    
+    # Issue -2, Reduce the big(O) to O(N) by direct access updating
+    # for portfolio in reportReturn:
+    #     portfolio['price'] = float(dicResult[portfolio['name']])
+
+    # Issue -2, the orignial method of O(n2)
+    # for key in dicResult:
+    #     count = 0 
+    #     for k,v,e in reportReturn:
+    #         if key == reportReturn[count][k]:
+    #             reportReturn[count][e] = float(dicResult[key])
+    #         count += 1
+    # total = 0.0
+    # for portfolio in reportReturn: 
+    #     total +=  portfolio['shares'] * portfolio['price']
+    
+    # print(total)
     if total > totalResult: 
         print("Gain=", total - totalResult)
     else: 
