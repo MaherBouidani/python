@@ -77,7 +77,18 @@ def report3():
     print (total)
     #------To Calcualte all the total investments: 
     
-
+#----------------report 2.6 
+def report4(): 
+    def read_prices(filename):
+            
+            with open(filename, 'rt') as file:
+                rows = csv.reader(file)
+                next(rows)
+                dic = {}             
+                for row in rows:                                                             
+                    dic[row[0]] = row[1].strip()                                                
+            return dic
+    print(read_prices('Data/prices.csv'))
 #----------------invoke report2.4:
 # report1()
 
@@ -85,5 +96,7 @@ def report3():
 # report2()
 
 #----------------invoke report2.5:
-report3()
+# report3()
+#----------------invoke report2.6
+report4()
                                                                                                                                                                                                                                
