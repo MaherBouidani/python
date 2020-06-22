@@ -55,7 +55,6 @@ def report2():
 
 def report3():
     portfolios = []
-    total = 0.0 
     def read_portfolios(filename):
             
             with open(filename, 'rt') as file:
@@ -69,12 +68,19 @@ def report3():
                             portfolios.append(dic)
                            
                         
-            return portfolios
-    print(read_portfolios('Data/portfolio.csv'))
+            return portfolios          
+    def total():
+        total = 0.0
+        for portfolio in portfolios:
+            total += portfolio['shares'] * portfolio['price']
+        return total
 
-    for portfolio in portfolios:
-        total += portfolio['shares'] * portfolio['price']
-    print (total)
+    portResult = read_portfolios('Data/portfolio.csv')
+    totalRes = total()
+    return portResult, totalRes
+       
+    #Note: Return Method could return multiple values in Python. The Default return type is a "TUPLE"
+    #and could be "LIST" if specified <return [,]> 
     #------To Calcualte all the total investments: 
     
 #----------------report 2.6 
@@ -88,7 +94,31 @@ def report4():
                 for row in rows:                                                             
                     dic[row[0]] = row[1].strip()                                                
             return dic
-    print(read_prices('Data/prices.csv'))
+    dicResult = read_prices('Data/prices.csv')
+    reportReturn , totalResult = report3()
+    print(totalResult)
+
+    for key in dicResult:
+        count = 0 
+        for k,v,e in reportReturn:
+            if key == reportReturn[count][k]:
+                reportReturn[count][e] = float(dicResult[key])
+            count += 1
+    total = 0.0
+    for portfolio in reportReturn: 
+        total += total + portfolio['shares'] * portfolio['price']
+    
+    print(total)
+    if total > totalResult: 
+        print("Gain=", total - totalResult)
+    else: 
+        print("Loss=", abs(total - totalResult))
+    
+
+
+
+
+
 #----------------invoke report2.4:
 # report1()
 
