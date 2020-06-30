@@ -58,15 +58,24 @@
 
 # print(DicRes)
 
-myInt = 5
-def addNumber(myInt):
-    myInt = myInt+10
-    print("Memory Address of myInt",id(myInt))
-    return myInt
+# myInt = 5
+# def addNumber(myInt):
+#     myInt = myInt+10
+#     print("Memory Address of myInt",id(myInt))
+#     return myInt
     
-print(addNumber(myInt))
-print(myInt)
-print("Memory Address of myInt",id(myInt))
+# print(addNumber(myInt))
+# print(myInt)
+# print("Memory Address of myInt",id(myInt))
+
+# Using Break
+ls = [1,2,3,4,5,6,7,8]
+
+for num in ls:
+    if num == 5:
+        continue
+    else: 
+        print("Hello")
 #     line = 0
 #     while line < 
 #     for line in file:
