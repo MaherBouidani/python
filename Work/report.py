@@ -110,7 +110,7 @@ def report4():
 
     # Issue -2, the orignial method of O(n2)
     # for key in dicResult:
-    #     count = 0 
+    #     count = 0   // Enhancement: use enumerate(reportReturn) to puropse count and k,v,e at the same time
     #     for k,v,e in reportReturn:
     #         if key == reportReturn[count][k]:
     #             reportReturn[count][e] = float(dicResult[key])

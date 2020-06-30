@@ -58,15 +58,24 @@
 
 # print(DicRes)
 
-myInt = 5
-def addNumber(myInt):
-    myInt = myInt+10
-    print("Memory Address of myInt",id(myInt))
-    return myInt
+# myInt = 5
+# def addNumber(myInt):
+#     myInt = myInt+10
+#     print("Memory Address of myInt",id(myInt))
+#     return myInt
     
-print(addNumber(myInt))
-print(myInt)
-print("Memory Address of myInt",id(myInt))
+# print(addNumber(myInt))
+# print(myInt)
+# print("Memory Address of myInt",id(myInt))
+
+# Using Break
+# ls = [1,2,3,4,5,6,7,8]
+
+# for num in ls:
+#     if num == 5:
+#         continue
+#     else: 
+#         print("Hello")
 #     line = 0
 #     while line < 
 #     for line in file:
@@ -77,3 +86,17 @@ print("Memory Address of myInt",id(myInt))
 # print(record)
 
 # Test
+#Zip Function
+
+# row = ['name', 'address', 'value']
+# col = ['abc', '2xx abc', 10]
+
+# dicts = dict(zip(row, col))
+# print(dicts)
+
+#Value, Key pair
+#Test
+
+val = [('GOOG', 490.1), ('AA', 23.45), ('IBM', 91.1), ('MSFT', 34.23)]
+
+print(sorted(val))
