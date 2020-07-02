@@ -85,7 +85,6 @@
 
 # print(record)
 
-# Test
 #Zip Function
 
 # row = ['name', 'address', 'value']
@@ -95,11 +94,9 @@
 # print(dicts)
 
 #Value, Key pair
-#Test
 
 val = [('GOOG', 490.1), ('AA', 23.45), ('IBM', 91.1), ('MSFT', 34.23)]
 
 print(sorted(val))
 
-#Test
-#Test
+#Test for Git
